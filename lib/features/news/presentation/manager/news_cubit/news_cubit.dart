@@ -123,7 +123,6 @@ class NewsCubit extends Cubit<NewsState> {
 
   void getSearch(String value) {
     emit(GetSearchLoaded());
-    // search = [];
     DioHelper().getData(
       url: 'v2/everything',
       query: {

@@ -15,7 +15,6 @@ class SearchView extends StatelessWidget {
       listener: (context, state) {},
       builder: (context, state) {
         final List<dynamic> list = context.read<NewsCubit>().search;
-
         return Scaffold(
           appBar: AppBar(),
           body: Column(

@@ -1,14 +1,10 @@
-
-
-
 import 'package:flutter/material.dart';
 import 'package:news/features/news/data/news/article.dart';
 
 class BuildArticleItem extends StatelessWidget {
-  const BuildArticleItem(
-    {
-    super.key,  this.article,
-      // this.results,
+  const BuildArticleItem({
+    super.key,
+    this.article,
   });
   final Article? article;
   @override
@@ -24,10 +20,10 @@ class BuildArticleItem extends StatelessWidget {
               borderRadius: BorderRadius.circular(10.0),
             ),
             child: Image.network(
-              article?.urlToImage??'',
+              article?.urlToImage ?? '',
               fit: BoxFit.cover,
               errorBuilder: (context, error, stackTrace) {
-                return const Text('فشل في تحميل الصورة');
+                return const Icon(Icons.error);
               },
             ),
           ),
@@ -43,7 +39,7 @@ class BuildArticleItem extends StatelessWidget {
                 children: [
                   Expanded(
                     child: Text(
-                      '${article?.title?? " "}',
+                      '${article?.title ?? " "}',
                       maxLines: 4,
                       overflow: TextOverflow.ellipsis,
                       style: Theme.of(context).textTheme.bodyMedium,

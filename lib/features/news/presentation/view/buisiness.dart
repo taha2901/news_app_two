@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news/features/news/presentation/manager/news_cubit/news_cubit.dart';
-import 'package:news/features/news/presentation/view/widgets/build_item_article.dart';
+import 'package:news/features/news/presentation/view/widgets/list_view_buisiness.dart';
 
 class BusinessScreen extends StatelessWidget {
   const BusinessScreen({super.key});
@@ -12,19 +12,7 @@ class BusinessScreen extends StatelessWidget {
       listener: (context, state) {},
       builder: (context, state) {
         var list = NewsCubit.get(context).business;
-        return ListView.builder(
-          physics: const BouncingScrollPhysics(),
-          itemCount: list.length,
-          itemBuilder: (context, index) {
-            return list.length > 0
-                ? BuildArticleItem(
-                    article: list[index],
-                  )
-                : const Center(
-                    child: CircularProgressIndicator(),
-                  );
-          },
-        );
+        return ListViewBuisiness(list: list);
       },
     );
   }
